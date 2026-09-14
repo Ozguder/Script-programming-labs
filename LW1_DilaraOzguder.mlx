@@ -1,0 +1,161 @@
+% Name: Dilara
+% Surname: Ozguder
+% Group: Ekfu-25/1
+% Date: 14.09.2026
+
+clear; clc; close all;
+
+%% Complex Numbers
+
+z1 = -3*sqrt(3) - 3i;
+z2 = 2i;
+z3 = -sqrt(3)/2 + (1/2)*1i;
+
+fprintf('Given complex numbers:\n');
+fprintf('z1 = %.6f %+.6fi\n', real(z1), imag(z1));
+fprintf('z2 = %.6f %+.6fi\n', real(z2), imag(z2));
+fprintf('z3 = %.6f %+.6fi\n\n', real(z3), imag(z3));
+
+
+%% 1) z1 + z2
+
+result1 = z1 + z2;
+
+fprintf('1) z1 + z2 =\n');
+disp(result1);
+
+
+%% 2) |z1 - z3|
+
+result2 = abs(z1 - z3);
+
+fprintf('2) |z1 - z3| =\n');
+disp(result2);
+
+
+%% 3) z1 * z3
+
+result3 = z1 * z3;
+
+fprintf('3) z1 * z3 =\n');
+disp(result3);
+
+
+%% 4) z = z2 / z3
+
+result4 = z2 / z3;
+
+fprintf('4) z2 / z3 =\n');
+disp(result4);
+
+
+%% 5) Re(z2 * z3)
+
+result5 = real(z2 * z3);
+
+fprintf('5) Re(z2 * z3) =\n');
+disp(result5);
+
+
+%% 6) Im((z2 + z3) / z2)
+
+result6 = imag((z2 + z3) / z2);
+
+fprintf('6) Im((z2 + z3) / z2) =\n');
+disp(result6);
+
+
+%% 7) Cube roots of -3
+
+k3 = 0:2;
+
+roots3 = 3^(1/3) .* exp(1i*(pi + 2*pi*k3)/3);
+
+fprintf('7) Cube roots of -3:\n');
+disp(roots3);
+
+
+%% Fifth roots of -52
+
+k5 = 0:4;
+
+roots5 = 52^(1/5) .* exp(1i*(pi + 2*pi*k5)/5);
+
+fprintf('Fifth roots of -52:\n');
+disp(roots5);
+
+
+%% Plot the roots in Cartesian coordinate system
+
+figure;
+
+plot(real(roots3), imag(roots3), 'o', ...
+    'MarkerSize', 8, 'LineWidth', 1.5);
+
+hold on;
+
+plot(real(roots5), imag(roots5), 'x', ...
+    'MarkerSize', 9, 'LineWidth', 1.5);
+
+xline(0);
+yline(0);
+
+grid on;
+axis equal;
+
+xlabel('Real axis');
+ylabel('Imaginary axis');
+
+title('Roots in Cartesian Coordinate System');
+
+legend('Cube roots of -3', ...
+       'Fifth roots of -52', ...
+       'Location', 'best');
+
+
+%% 8) Trigonometric form of z3
+
+r_z3 = abs(z3);
+phi_z3 = mod(angle(z3), 2*pi);
+
+fprintf('\n8) Trigonometric form of z3:\n');
+fprintf('r = %.15f\n', r_z3);
+fprintf('phi = %.15f rad\n', phi_z3);
+fprintf('z3 = %.15f*(cos(%.15f) + i*sin(%.15f))\n', ...
+        r_z3, phi_z3, phi_z3);
+
+
+%% Trigonometric form of z1*z2 - z3
+
+z_trig = z1*z2 - z3;
+
+r_trig = abs(z_trig);
+phi_trig = mod(angle(z_trig), 2*pi);
+
+fprintf('\nTrigonometric form of z1*z2 - z3:\n');
+fprintf('r = %.15f\n', r_trig);
+fprintf('phi = %.15f rad\n', phi_trig);
+fprintf('z1*z2-z3 = %.15f*(cos(%.15f) + i*sin(%.15f))\n', ...
+        r_trig, phi_trig, phi_trig);
+
+
+%% 9) Exponential form of z2
+
+r_z2 = abs(z2);
+phi_z2 = mod(angle(z2), 2*pi);
+
+fprintf('\n9) Exponential form of z2:\n');
+fprintf('z2 = %.15f*exp(i*%.15f)\n', r_z2, phi_z2);
+
+
+%% Exponential form of (z1*z2)/(z1-z3)
+
+z_exp = (z1*z2)/(z1-z3);
+
+r_exp = abs(z_exp);
+phi_exp = mod(angle(z_exp), 2*pi);
+
+fprintf('\nExponential form of (z1*z2)/(z1-z3):\n');
+fprintf('r = %.15f\n', r_exp);
+fprintf('phi = %.15f rad\n', phi_exp);
+fprintf('z = %.15f*exp(i*%.15f)\n', r_exp, phi_exp);
