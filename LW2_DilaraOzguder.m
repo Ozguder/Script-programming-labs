@@ -1,6 +1,7 @@
 % Name: Dilara
 % Surname: Ozguder
 % Group: EKFU-25/1
+% Date: 2026.09.18
 % Student ID: 20244609
 % Laboratory work 2
 % Variant 9
