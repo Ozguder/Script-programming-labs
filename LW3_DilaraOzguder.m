@@ -64,7 +64,7 @@ polar(x3,y)
 title('Polar Plot of y(x) = sin(x)cos(x)')
 
 axis([-0.6 0.6 -0.6 0.6])
-
+ 
 grid on
 
 
@@ -125,7 +125,7 @@ ylabel('Voltage (V)')
 
 title('Original and Filtered Signals', ...
       'Color',purple, ...
-      'FontSize',16)
+      'FontSize',10)
 
 legend('Original signal', ...
        'Filtered signal', ...
@@ -161,7 +161,7 @@ ylabel('Voltage (V)')
 
 title('Signal Samples Exceeding U_1', ...
       'Color',purple, ...
-      'FontSize',16)
+      'FontSize',10)
 
 legend('Samples above U_1', ...
        'U_1 = 3.5 V', ...
