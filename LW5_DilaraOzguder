@@ -1,0 +1,118 @@
+% Name: Dilara
+% Surname: Ozguder
+% Group: EKFU-25/1
+% Laboratory work 5
+% Variant 9
+
+format compact
+
+
+%% Task 1 - Cell matrix
+
+C = cell(1,4);
+
+C{1} = [1 2 3 4 5];
+C{2} = 'MATLAB';
+C{3} = true;
+C{4} = int32([10 20 30]);
+
+disp('Cell array:')
+disp(C)
+
+L = cellfun(@length,C);
+
+disp('Length of each cell element:')
+disp(L)
+
+disp('Classes of cell elements:')
+disp(class(C{1}))
+disp(class(C{2}))
+disp(class(C{3}))
+disp(class(C{4}))
+
+figure
+cellplot(C)
+title('Cell Array Structure')
+
+
+%% Task 2 - Operation flow control
+
+m = input('Enter the value of m: ');
+
+choice = input('Enter 1 for sin or 2 for cos: ');
+
+while choice ~= 1 && choice ~= 2
+    disp('Please enter only 1 or 2.')
+    choice = input('Enter 1 for sin or 2 for cos: ');
+end
+
+figure
+
+for k = 1:15
+
+    x = m:0.1:m + 4*pi;
+
+    if choice == 1
+
+        y = sin(x);
+
+        clf
+        stem(x,y)
+
+        title('Discrete Sine Function')
+
+    else
+
+        y = cos(x);
+
+        clf
+        stem(x,y)
+
+        title('Discrete Cosine Function')
+
+    end
+
+    xlabel('x')
+    ylabel('Function value')
+    grid on
+
+    axis([m m+4*pi -1.2 1.2])
+
+    drawnow
+
+    pause(0.5)
+
+    m = m + pi/8;
+
+end
+
+
+%% Complementary Task
+
+sentence = input('Enter a sentence: ','s');
+
+symbol = input('Enter one symbol to remove: ','s');
+
+while length(symbol) ~= 1
+    disp('Please enter exactly one symbol.')
+    symbol = input('Enter one symbol to remove: ','s');
+end
+
+newSentence = '';
+removedSymbols = 0;
+
+for i = 1:length(sentence)
+
+    if sentence(i) == symbol
+        removedSymbols = removedSymbols + 1;
+    else
+        newSentence = [newSentence sentence(i)];
+    end
+
+end
+
+disp('Sentence after removing the selected symbol:')
+disp(newSentence)
+
+disp('Number of removed symbols:')
+disp(removedSymbols)
